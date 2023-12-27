@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/esm/popper.min.js"></script>
+  <style>
+    .fullscr:hover {
+      cursor: pointer;
+      transform: scale(2);
+    }
+  </style>
+</head>
+<body class="bg-transparent">
+<div class="text-center">
+  <iframe src="" frameborder="0" width="960" height="540" id="gameframe"></iframe><br>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="closeFullscreenIcon" viewBox="0 0 24 24">
+      <path d="M5.25 15.5a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM14.25 15.5a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM5.25 11a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM14.25 11a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5z" fill="#009CFF"></path><path d="M14.25 20c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM14.25 11c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM9.75 11c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM9.75 20c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25z" fill="#009CFF"></path>
+    </symbol>
+    <symbol id="enterFullscreenIcon" viewBox="0 0 24 24">
+      <path d="M5.25 20a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM14.25 20a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM5.25 6.5a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5zM14.25 6.5a1.25 1.25 0 1 1 0-2.5h4.5a1.25 1.25 0 1 1 0 2.5h-4.5z" fill="#009CFF"></path><path d="M5.25 11C4.56 11 4 10.44 4 9.75v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM18.75 11c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM5.25 20C4.56 20 4 19.44 4 18.75v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25zM18.75 20c-.69 0-1.25-.56-1.25-1.25v-4.5a1.25 1.25 0 1 1 2.5 0v4.5c0 .69-.56 1.25-1.25 1.25z" fill="#009CFF"></path>
+    </symbol>
+  </svg>
+  <script>
+    function fullscreen(){
+      open_fullscreen();
+    }
+    function open_fullscreen() {
+      let game = document.getElementById("gameframe");
+      if (game.requestFullscreen) {
+        game.requestFullscreen();
+      } else if (game.mozRequestFullScreen) { /* Firefox */
+        game.mozRequestFullScreen();
+      } else if (game.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        game.webkitRequestFullscreen();
+      } else if (game.msRequestFullscreen) { /* IE/Edge */
+        game.msRequestFullscreen();
+      }
+    };
+  </script>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-11">
+        <button class="btn btn-danger m-1" data-type="server-1" data-url="https://retrobowl.github.io/playgame/games/retro-bowl-new/index.html">Server 1</button>
+        <button class="btn btn-danger m-1" data-type="server-2" data-url="https://game316009.konggames.com/gamez/0031/6009/live/index.html">Server 2</button>
+        <button class="btn btn-danger m-1" data-type="server-3" data-url="https://retrobowlcom.com/games/retro-bowl-new/index.html">Server 3</button>
+        <button class="btn btn-danger m-1" data-type="server-4" data-url="https://retrobowl.fun/games/retro-bowl/index.html">Server 4</button>
+        <button class="btn btn-danger m-1" data-type="server-5" data-url="https://retrobowl-unblocked.github.io/new/index.html">Server 5</button>
+      </div>
+      <div class="col-1">
+        <div class="fullscr" onclick="fullscreen()">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><use href="#enterFullscreenIcon"></use></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  $('button').click(function () {
+    let type = $(this).data('type');
+    let url = $(this).data('url');
+    $('iframe').attr('src', url);
+  });
+</script>
+</body>
+</html>
